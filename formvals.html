@@ -1,0 +1,107 @@
+<html>
+	<head>
+		<script type = "text/javascript">
+			function fun()
+			{
+				var name = document.forms["AForm"]["Name"];
+				var pn = document.forms["AForm"]["Phone No. :"];
+				var email = document.forms["AForm"]["Email id :"];
+				var address = document.forms["AForm"]["Address :"];
+
+				if(name.value == "")
+				{
+					window.alert("THIS IS A COMPULSORY FIELD, PLEASE ENTER NAME.");
+					name.focus();
+					return false;
+				}
+
+				{
+					if(pn.value == "")
+					{
+						window.alert("THIS IS A COMPULSORY FIELD, PLEASE ENTER PHONE NUMBER.");
+						pn.focus();
+						return false;
+					}
+					else if(isNaN(pn))
+					{
+						window.alert("ENTER NUMERICS.");
+						pn.focus();
+						return false;
+					}
+				}
+
+				{
+					if(email.value == "")
+					{
+						window.alert("THIS IS A COMPULSORY FIELD, PLEASE ENTER EMAIL ID.")
+						email.focus();
+						return false;
+					}
+					else
+					{
+						var apos = email.indexOf("@");
+						var dpos = email.indexOf(".");
+						if(apos<1 || dpos<apos+2 || dpos+2>=email.length)
+						{
+							window.alert("INVALID EMAIL ID");
+							email.focus();
+							return false;
+						}
+					}
+				}
+
+				if(address.value == "")
+				{
+					window.alert("THIS IS A COMPULSORY FIELD, PLEASE ENTER ADDRESS.");
+					address.focus();
+					return false;
+				}
+
+				return true;
+			}
+		</script>
+
+		<style>
+			fun
+			{
+				margin-left: 70px;
+				font-weight: bold;
+				float: left;
+				clear: left;
+				width: 100px;
+				text-align: center;
+				margin-right: 10px;
+				font: times new roman;
+				font-size: 15px;
+			}
+
+			div
+			{
+				box-sizing: border-box;
+				width: 90%;
+				border: 100px dark blue;
+				float: left;
+				align content: center;
+				align items: center;
+			}
+
+			form
+			{
+				margin: auto;
+				width: 500px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1 style="text-align: center">INQUIRY FORM</h1>
+		<form name="AForm" action="demo_form.asp" onsubmit="return fun()" method="post">
+			<p>NAME: <input type="text" size=30 name="name" placeholder="HARSH KESHRUWALA"></p><br>
+			<p>CONTACT NO.: <input type="text" size=10 name="pn" placeholder="7894561230"></p><br>
+			<p>EMAIL ID: <input type="text" size=50 name="email" placeholder="keshruwalaharsh@gmail.com"></p><br>
+			<p>ADDRESS: <input type="text" size=100 name="address" placeholder="C-32 Vrundavan Bhavan, GIDC road, gotri, Vadodara"></p><br>
+			<p><input type="submit" value="SUBMIT" name="Submit">      
+        	<input type="reset" value="RESET" name="Reset"></p>
+        </form>
+    </body>
+</html>
